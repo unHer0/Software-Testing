@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleLib", "TriangleLib.csproj", "{3519AED3-7288-40AF-9377-DB19ECCC3BC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleLib.Tests", "..\TriangleLib.Tests\TriangleLib.Tests.csproj", "{0F966F10-A759-453F-A7A3-8641B396D8A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3519AED3-7288-40AF-9377-DB19ECCC3BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3519AED3-7288-40AF-9377-DB19ECCC3BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3519AED3-7288-40AF-9377-DB19ECCC3BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3519AED3-7288-40AF-9377-DB19ECCC3BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F966F10-A759-453F-A7A3-8641B396D8A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F966F10-A759-453F-A7A3-8641B396D8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F966F10-A759-453F-A7A3-8641B396D8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F966F10-A759-453F-A7A3-8641B396D8A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A025EA20-3DC0-4ACC-95C2-B70BCF5ABD09}
+	EndGlobalSection
+EndGlobal
