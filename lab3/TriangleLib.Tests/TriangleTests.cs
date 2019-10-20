@@ -13,13 +13,13 @@ namespace TriangleLib.Tests
         }
 
         [TestMethod]
-        public void AllSidesIsZero()
+        public void AllSidesAreZero()
         {
             Assert.IsFalse(Triangle.IsTriangle(0, 0, 0));
         }
 
         [TestMethod]
-        public void AllSidesIsNegative()
+        public void AllSidesAreNegative()
         {
             Assert.IsFalse(Triangle.IsTriangle(-5, -8, -10));
         }
