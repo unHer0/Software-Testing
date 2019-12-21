@@ -170,5 +170,15 @@ namespace Framework.Test
             Assert.AreEqual(ERROR_TEXT_WHEN_INVALID_EMAIL,
                             passengerDetailsPage.GetEmailErrorMessageText());
         }
+
+        [Test]
+        public void SearchWithoutEnteringInformationTest()
+        {
+            HomePage homePage = new HomePage(driver);
+            SelectFlightPage selectFlightsPage = homePage
+                .AcceptCookie()
+                .ClickTicketsSearchButton();
+            Assert.AreEqual(homePage.GetToErrorMessageText(), ERROR_TEXT_IF_ENTERED_INCORRECTLY);
+        }
     }
 }
