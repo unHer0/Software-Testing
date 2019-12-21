@@ -77,6 +77,8 @@
     <Compile Include="Driver\DriverSingleton.cs" />
     <Compile Include="Models\Passenger.cs" />
     <Compile Include="Models\Route.cs" />
+    <Compile Include="PageObject\PlanPage.cs" />
+    <Compile Include="PageObject\ExtrasPage.cs" />
     <Compile Include="PageObject\HelpPage.cs" />
     <Compile Include="PageObject\HomePage.cs" />
     <Compile Include="PageObject\PassengerDetailsPage.cs" />

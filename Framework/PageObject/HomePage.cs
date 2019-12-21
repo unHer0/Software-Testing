@@ -17,6 +17,7 @@ namespace Framework.PageObject
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
             this.driver.Navigate().GoToUrl(Url);
+            Log.Info($"Home Page initialized");
         }
 
         [FindsBy(How = How.Id, Using = "depart-from")]
@@ -61,117 +62,117 @@ namespace Framework.PageObject
 
         public HomePage EnterDepartureCity(Route route)
         {
-            Log.Info("EnterDepartureCity");
             departureCityInputField.Clear();
             departureCityInputField.SendKeys(route.Departure);
+            Log.Info($"Enter Departure City: {route.Departure}");
             return this;
         }
 
         public HomePage EnterArrivalCity(Route route)
         {
-            Log.Info("EnterArrivalCity");
             arrivalCityInputField.Clear();
             arrivalCityInputField.SendKeys(route.Arrival);
+            Log.Info($"Enter Arrival City: {route.Arrival}");
             return this;
         }
 
         public HomePage SelectOneWayRoute()
         {
-            Log.Info("SelectOneWayRoute");
             GetOneWayLabel().Click();
+            Log.Info($"Select OneWay Route");
             return this;
         }
 
         public HomePage EnterOneWayLeaveDate(Route route)
         {
-            Log.Info("EnterOneWayLeaveDate");
             leaveDateInputField.SendKeys(route.LeaveDate);
+            Log.Info($"Enter OneWay LeaveDate: {route.LeaveDate}");
             return this;
         }
 
         public HomePage ClickAddInfantsButton(int numberOfClicks)
         {
-            Log.Info("ClickAddInfantsButton");
             for (int i = 0; i < numberOfClicks; i++)
             {
                 addInfantButton.Click();
             }
+            Log.Info($"Click Add Infants Button {numberOfClicks} times");
             return this;
         }
 
         public SelectFlightPage ClickTicketsSearchButton()
         {
-            Log.Info("ClickTicketsSearchButton");
             ticketsSearchButton.Click();
+            Log.Info("Click Tickets Search Button");
             return new SelectFlightPage(driver);
         }
 
         public HelpPage GoToHelpPage()
         {
-            Log.Info("GoToHelpPage");
             HelpButton.Click();
+            Log.Info("Go To Help Page");
             return new HelpPage(driver);
         }
 
         public PlanPage GoToPlanPage()
         {
-            Log.Info("GoToPlanPage");
             PlanButton.Click();
+            Log.Info("Go To Plan Page");
             return new PlanPage(driver);
         }
 
         public string GetToErrorMessageText()
         {
-            Log.Info("GetToErrorMessageText");
             Stopwatch stopwatch = Stopwatch.StartNew();
             while (stopwatch.ElapsedMilliseconds <= 10000)
             {
                 if (toErrorMessageDiv.Text != String.Empty)
                     return toErrorMessageDiv.Text;
             }
+            Log.Info("Get To Error Message Text");
             return " ";
         }
 
         public string GetPaxCountsErrorMessageText()
         {
-            Log.Info("GetPaxCountsErrorMessageText");
             Stopwatch stopwatch = Stopwatch.StartNew();
             while (stopwatch.ElapsedMilliseconds <= 10000)
             {
                 if (paxCountsErrorMessageDiv.Text != String.Empty)
                     return paxCountsErrorMessageDiv.Text;
             }
+            Log.Info("Get PaxCounts Error Message Text");
             return " ";
         }
 
         public string GetFromErrorMessageText()
         {
-            Log.Info("GetFromErrorMessageText");
             Stopwatch stopwatch = Stopwatch.StartNew();
             while (stopwatch.ElapsedMilliseconds <= 10000)
             {
                 if (fromErrorMessageDiv.Text != String.Empty)
                     return fromErrorMessageDiv.Text;
             }
+            Log.Info("Get From Error Message Text");
             return " ";
         }
 
         public string GetLeaveDateErrorMessageText()
         {
-            Log.Info("GetLeaveDateErrorMessageText");
             Stopwatch stopwatch = Stopwatch.StartNew();
             while (stopwatch.ElapsedMilliseconds <= 10000)
             {
                 if (leaveDateErrorMessageDiv.Text != String.Empty)
                     return leaveDateErrorMessageDiv.Text;
             }
+            Log.Info("Get Leave Date Error Message Text");
             return " ";
         }
 
         public HomePage AcceptCookie()
         {
-            Log.Info("AcceptCookie");
             GetAcceptCookieButton().Click();
+            Log.Info("Accept Cookie");
             return this;
         }
 
