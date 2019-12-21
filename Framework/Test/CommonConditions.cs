@@ -1,4 +1,5 @@
 ﻿using Framework.Driver;
+using log4net;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -9,10 +10,13 @@ namespace Framework.Test
     {
         protected IWebDriver driver;
 
+        private static ILog Log = LogManager.GetLogger(typeof(TestListener));
+
         [SetUp]
         public void OpenBrowser()
         {
             driver = DriverSingleton.GetDriver();
+            Log.Info("Browser opened");
         }
 
         [TearDown]
@@ -25,6 +29,7 @@ namespace Framework.Test
                 TestListener.OnTestSuccess();
 
             DriverSingleton.CloseDriver();
+            Log.Info("Browser closed");
         }
     }
 }

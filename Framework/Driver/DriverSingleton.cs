@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using log4net;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -11,6 +12,7 @@ namespace Framework.Driver
     public class DriverSingleton
     {
         private static IWebDriver driver;
+        private static ILog Log = LogManager.GetLogger(typeof(TestListener));
 
         private DriverSingleton() { }
 
@@ -32,12 +34,14 @@ namespace Framework.Driver
                 driver.Manage().Window.Maximize();
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
             }
+            Log.Info("Driver initialized");
             return driver;
         }
 
         public static void CloseDriver()
         {
             driver.Quit();
+            Log.Info("Driver closed");
             driver = null;
         }
     }
