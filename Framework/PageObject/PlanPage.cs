@@ -5,17 +5,17 @@ using System;
 
 namespace Framework.PageObject
 {
-    public class HelpPage
+    public class PlanPage
     {
         private IWebDriver driver;
         private WebDriverWait wait;
-        public HelpPage(IWebDriver driver)
+        public PlanPage(IWebDriver driver)
         {
             this.driver = driver;
             PageFactory.InitElements(this.driver, this);
         }
 
-        public string GetUrlHelpPage()
+        public string GetUrlPlanPage()
         {
             return driver.Url;
         }

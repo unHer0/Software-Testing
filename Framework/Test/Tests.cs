@@ -180,5 +180,15 @@ namespace Framework.Test
                 .ClickTicketsSearchButton();
             Assert.AreEqual(homePage.GetToErrorMessageText(), ERROR_TEXT_IF_ENTERED_INCORRECTLY);
         }
+
+        [Test]
+        public void CheckPlanPage()
+        {
+            RouteCreator routeCreator = new RouteCreator();
+            PlanPage planPage = new HomePage(driver)
+                .AcceptCookie()
+                .GoToPlanPage();
+            Assert.AreEqual(planPage.GetUrlHelpPage(), HelpPageUrl);
+        }
     }
 }
