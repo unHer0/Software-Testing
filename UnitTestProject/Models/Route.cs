@@ -13,15 +13,6 @@
             LeaveDate = leaveDate;
         }
 
-        public override string ToString()
-        {
-            return "Route  {" +
-                    $"Departure = {Departure}, " +
-                    $"Arrival = {Arrival}" +
-                    $"LeaveDate = {LeaveDate}" +
-                    "}";
-        }
-
         public override bool Equals(object obj)
         {
             Route route = obj as Route;

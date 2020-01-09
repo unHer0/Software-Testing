@@ -38,13 +38,44 @@ namespace UnitTestProject.PageObjects
         [FindsBy(How = How.Name, Using = "class-travellers-trigger")]
         private IWebElement passengersButton;
 
-        private ReadOnlyCollection<IWebElement> allDates => GetWebElementsByXPath("//*[@id='depart-fsc-datepicker-popover']//td");
-        private ReadOnlyCollection<IWebElement> allSelects => GetWebElementsByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div//select");
-        private IWebElement searchButton => GetWebElementByXPath("//*[@id='flights-search-controls-root']/div/div/form/div[3]/button");
-        private IWebElement elementThatContainsErrorMessage => GetWebElementByXPath("//*[@id='flights-search-controls-root']/div/div/form/div[2]/div");
-        private IWebElement addChildLikePassengerButton => GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div[2]//button[2]");
-        private IWebElement doneButton => GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/footer/button");
-        private IWebElement addAdultButton => GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div[1]/div/button[2]");
+        private ReadOnlyCollection<IWebElement> allDates;
+        private void GetAllDates()
+        {
+            allDates = GetWebElementsByXPath("//*[@id='depart-fsc-datepicker-popover']//td");
+        }
+
+        private ReadOnlyCollection<IWebElement> allSelects;
+        private void GetAllSelects()
+        {
+            allSelects = GetWebElementsByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div//select");
+        }
+
+        private IWebElement searchButton;
+        private void GetSearchButton()
+        {
+            searchButton = GetWebElementByXPath("//*[@id='flights-search-controls-root']/div/div/form/div[3]/button");
+        }
+
+        private IWebElement elementThatContainsErrorMessage;
+        private void GetElementThatContainsErrorMessage()
+        {
+            elementThatContainsErrorMessage = GetWebElementByXPath("//*[@id='flights-search-controls-root']/div/div/form/div[2]/div");
+        }
+        private IWebElement addChildLikePassengerButton;
+        private void GetAddChildLikePassengerButton()
+        {
+            addChildLikePassengerButton = GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div[2]//button[2]");
+        }
+        private IWebElement doneButton;
+        private void GetDoneButton()
+        {
+            doneButton = GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/footer/button");
+        }
+        private IWebElement addAdultButton;
+        private void GetAddAdultButton()
+        {
+            addAdultButton = GetWebElementByXPath("//*[@id='cabin-class-travellers-popover']/div/div/div[1]/div/button[2]");
+        }
 
         public HomePage EnterDepartureCity(Route route)
         {
@@ -74,6 +105,7 @@ namespace UnitTestProject.PageObjects
 
         public HomePage ChooseDepartDate(Route route)
         {
+            GetAllDates();
             foreach (IWebElement date in allDates)
             {
                 if (route.LeaveDate.Equals(date.Text))
@@ -93,6 +125,7 @@ namespace UnitTestProject.PageObjects
 
         public HomePage AddChildPassengers(int count)
         {
+            GetAddChildLikePassengerButton();
             for (int i = 0; i < count; i++)
             {
                 addChildLikePassengerButton.Click();
@@ -102,12 +135,14 @@ namespace UnitTestProject.PageObjects
 
         public HomePage ClickDoneButton()
         {
+            GetDoneButton();
             doneButton.Click();
             return this;
         }
 
         public HomePage SetAllAge(string age)
         {
+            GetAllSelects();
             foreach (IWebElement select in allSelects)
             {
                 SelectElement selectElement = new SelectElement(select);
@@ -118,6 +153,7 @@ namespace UnitTestProject.PageObjects
 
         public HomePage AddAdultPassenger(int count)
         {
+            GetAddAdultButton();
             for (int i = 0; i < count; i++)
             {
                 addAdultButton.Click();
@@ -127,11 +163,13 @@ namespace UnitTestProject.PageObjects
 
         public bool CheckAddAdultButton()
         {
+            GetAddAdultButton();
             return addAdultButton.Enabled;
         }
 
         public bool CheckDateThanEarlierCurrent()
         {
+            GetAllDates();
             foreach (IWebElement date in allDates)
             {
                 if (date.Text.Equals("31"))
@@ -144,12 +182,14 @@ namespace UnitTestProject.PageObjects
 
         public SelectFlightPage ClickSearchButton()
         {
+            GetSearchButton();
             searchButton.Click();
             return new SelectFlightPage();
         }
 
         public string GetErrorMessage(string message)
         {
+            GetElementThatContainsErrorMessage();
             Stopwatch stopwatch = Stopwatch.StartNew();
             while (stopwatch.ElapsedMilliseconds <= 10000)
             {
