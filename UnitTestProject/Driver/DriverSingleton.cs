@@ -31,7 +31,7 @@ namespace UnitTestProject.Driver
                         new DriverManager().SetUpDriver(new FirefoxConfig());
 						FirefoxOptions options = new FirefoxOptions();
 						options.BrowserExecutableLocation = ("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
-                        driver = new FirefoxDriver();
+                        driver = new FirefoxDriver(options);
                         break;
                 }
                 driver.Manage().Window.Maximize();
