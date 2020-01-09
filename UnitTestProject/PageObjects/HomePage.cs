@@ -199,7 +199,13 @@ namespace UnitTestProject.PageObjects
             return " ";
         }
 
-        private IWebElement GetWebElementByXPath(string xpath) => driver.FindElement(By.XPath(xpath));
-        private ReadOnlyCollection<IWebElement> GetWebElementsByXPath(string xpath) => driver.FindElements(By.XPath(xpath));
+        private IWebElement GetWebElementByXPath(string xpath)
+        {
+            return driver.FindElement(By.XPath(xpath));
+        }
+        private ReadOnlyCollection<IWebElement> GetWebElementsByXPath(string xpath)
+        {
+            return driver.FindElements(By.XPath(xpath));
+        }
     }
 }
