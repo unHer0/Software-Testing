@@ -29,6 +29,8 @@ namespace UnitTestProject.Driver
                         break;
                     default:
                         new DriverManager().SetUpDriver(new FirefoxConfig());
+						FirefoxOptions options = new FirefoxOptions();
+						options.BrowserExecutableLocation = ("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
                         driver = new FirefoxDriver();
                         break;
                 }
